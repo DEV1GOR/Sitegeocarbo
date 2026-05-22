@@ -131,6 +131,21 @@
 
 
 
+  var menuToggle = document.getElementById('menu-toggle');
+  var mobileMenu = document.getElementById('mobile-menu');
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener('click', function() {
+      mobileMenu.classList.toggle('hidden');
+      menuToggle.classList.toggle('active');
+    });
+    mobileMenu.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        mobileMenu.classList.add('hidden');
+        menuToggle.classList.remove('active');
+      });
+    });
+  }
+
   var form = document.getElementById('contact-form');
   if (form) {
     form.addEventListener('submit', function(e) {
